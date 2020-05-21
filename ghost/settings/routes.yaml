@@ -1,6 +1,4 @@
 routes:
-  # /about/:
-  #   template: about
 
 collections:
   /:
