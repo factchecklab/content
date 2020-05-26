@@ -1,6 +1,15 @@
 stages:
+  - test
   - build
   - deploy
+
+test:
+  image: ghost:3
+  stage: test
+  before_script:
+    - npm install -g gscan
+  script:
+    - gscan ghost/themes/casper-maat
 
 build_image:
   image: docker:19.03.1
