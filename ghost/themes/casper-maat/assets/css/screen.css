@@ -1861,7 +1861,7 @@ Usage (In Ghost editor):
 
 .read-next {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: color(var(--darkgrey) l(-5%));
+    background: color(var(--whitegrey) l(+5%));
 }
 
 .read-next-feed {
@@ -1881,12 +1881,12 @@ Usage (In Ghost editor):
 }
 
 .read-next .post-card-primary-tag {
-    color: #fff;
+    color: #000;
     opacity: 0.6;
 }
 
 .read-next .post-card-title {
-    color: #fff;
+    color: #000;
     opacity: 0.8;
     transition: all 0.2s ease-in-out;
 }
@@ -1896,19 +1896,19 @@ Usage (In Ghost editor):
 }
 
 .read-next .post-card-excerpt {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .read-next .static-avatar {
-    border-color: #000;
+    border-color: #fff;
 }
 
 .read-next .post-card-byline-content {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .read-next .post-card-byline-content a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .read-next-card {
@@ -1919,7 +1919,7 @@ Usage (In Ghost editor):
     overflow: hidden;
     margin: 0 25px 50px;
     padding: 25px;
-    background: linear-gradient(color(var(--darkgrey) l(+2%)), color(var(--darkgrey) l(-5%)));
+    background: linear-gradient(color(#fff l(-5%)), color(var(--whitegrey) l(+2%)));
     border-radius: 3px;
 }
 
@@ -1933,7 +1933,7 @@ Usage (In Ghost editor):
 
 .read-next-card-header h3 {
     margin: 0;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.2rem;
     line-height: 1em;
     font-weight: 300;
@@ -1942,7 +1942,7 @@ Usage (In Ghost editor):
 }
 
 .read-next-card-header h3 a {
-    color: #fff;
+    color: #000;
     font-weight: 500;
     text-decoration: none;
     opacity: 0.8;
@@ -1987,7 +1987,7 @@ Usage (In Ghost editor):
 
 .read-next-card-content li a {
     display: block;
-    color: #fff;
+    color: #000;
     opacity: 0.8;
 }
 
@@ -2012,7 +2012,7 @@ Usage (In Ghost editor):
 
 .read-next-card-meta p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .read-next-card-footer {
@@ -2022,8 +2022,8 @@ Usage (In Ghost editor):
 
 .read-next-card-footer a {
     padding: 7px 12px 8px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.3rem;
     border-radius: 999px;
     transition: all 0.35s ease-in-out;
