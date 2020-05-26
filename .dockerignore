@@ -1,2 +1,6 @@
 ghost/logs
 ghost/data
+ghost/images
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml

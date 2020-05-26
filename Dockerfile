@@ -1,6 +1,10 @@
 FROM ghost:3.16
 
-COPY ghost /var/lib/ghost/content
+# Install Google Cloud Storage storage adapter dependencies
+RUN npm install ghost-v3-google-cloud-storage && \
+    rm package-lock.json
 
-EXPOSE 2368
-VOLUME /var/lib/ghost/logs
+# The files in the content.orig directory is copied to content directory
+# at entrypoint.
+COPY ghost /var/lib/ghost/content.orig
+
