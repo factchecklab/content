@@ -173,7 +173,7 @@ body {
 }
 
 .site-logo {
-    max-height: 55px;
+    max-height: 200px;
 }
 
 .site-description {
@@ -198,7 +198,7 @@ body {
 }
 
 .site-home-header .site-header-content {
-    padding: 5vw 3vw 6vw;
+    padding: 2vw 3vw 3vw;
 }
 
 .site-home-header .site-title {
@@ -374,7 +374,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .site-nav-logo img {
     display: block;
     width: auto;
-    height: 21px;
+    height: 50px;
+    margin-top: -14px;
 }
 
 .site-home-header .site-nav-logo {
