@@ -113,8 +113,10 @@ body {
     margin-top: 64px;
     padding-bottom: 12px;
 
-    /* NOTE: uncomment these lines for dark background */
-    /*
+    /* NOTE: for light background */
+    color: #000;
+    background: white l(-5%)) no-repeat center center;
+    /* NOTE: for dark background
     color: #fff;
     background: color(var(--darkgrey) l(-5%)) no-repeat center center;
     */
