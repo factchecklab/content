@@ -4,3 +4,5 @@ ghost/images
 Dockerfile
 docker-compose.yml
 docker-compose.*.yml
+ghost/themes/casper-maat/assets/built
+ghost/themes/casper-maat/node_modules
