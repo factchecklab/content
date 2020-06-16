@@ -34,8 +34,6 @@ build_image:
 
 .deploy: &deploy_template
   image: dtzar/helm-kubectl:3.2.1
-  variables:
-    GCR_IMAGE: $GCR_REGISTRY/$GCR_PROJECT_ID/$CI_PROJECT_NAME
   before_script:
     - helm dep build chart
   script:
@@ -44,7 +42,8 @@ build_image:
         --install \
         --atomic \
         --set image.tag="git-$CI_COMMIT_SHORT_SHA" \
-        --set image.repository="$GCR_IMAGE" \
+        --set image.registry="$GCR_REGISTRY" \
+        --set image.repository="$GCR_PROJECT_ID/$CI_PROJECT_NAME" \
         --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null}
         --values ${HELM_RELEASE_UPGRADE_VALUES_FILE:-/dev/null}
 
