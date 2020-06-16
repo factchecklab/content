@@ -44,7 +44,7 @@ build_image:
         --set image.tag="git-$CI_COMMIT_SHORT_SHA" \
         --set image.registry="$GCR_REGISTRY" \
         --set image.repository="$GCR_PROJECT_ID/$CI_PROJECT_NAME" \
-        --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null}
+        --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null} \
         --values ${HELM_RELEASE_UPGRADE_VALUES_FILE:-/dev/null}
 
 production:
