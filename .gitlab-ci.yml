@@ -1,6 +1,7 @@
 stages:
   - test
   - build
+  - production-admin
   - production
 
 test:
@@ -46,6 +47,19 @@ build_image:
         --set image.repository="$GCR_PROJECT_ID/$CI_PROJECT_NAME" \
         --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null} \
         --values ${HELM_RELEASE_UPGRADE_VALUES_FILE:-/dev/null}
+
+production-admin:
+  <<: *deploy_template
+  stage: production-admin
+  environment:
+    name: production-admin
+    kubernetes:
+      namespace: content
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+  before_script:
+    - helm repo add bitnami https://charts.bitnami.com/bitnami
+    - helm dep build chart
 
 production:
   <<: *deploy_template
