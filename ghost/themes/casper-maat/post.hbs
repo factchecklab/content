@@ -78,8 +78,8 @@ into the {body} of the default.hbs template --}}
                             <h4 class="author-name">{{authors}}</h4>
                             --}}
                             <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="LL"}}</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</span>
                             </div>
                         </section>
 
@@ -139,7 +139,7 @@ into the {body} of the default.hbs template --}}
                 <article class="read-next-card">
                     <header class="read-next-card-header">
                         {{#../primary_tag}}
-                        <h3><span>More in</span> <a href="{{url}}">{{name}}</a></h3>
+                        <h3><a href="{{url}}">{{name}}</a><span>的更多文章</span></h3>
                         {{/../primary_tag}}
                     </header>
                     <div class="read-next-card-content">
@@ -148,15 +148,15 @@ into the {body} of the default.hbs template --}}
                             <li>
                                 <h4><a href="{{url}}">{{title}}</a></h4>
                                 <div class="read-next-card-meta">
-                                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> –
-                                        {{reading_time}}</p>
+                                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="LL"}}</time> –
+                                        {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</p>
                                 </div>
                             </li>
                             {{/foreach}}
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}}
+                        <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{meta.pagination.total}} 篇文章
                             →</a>
                     </footer>
                 </article>
