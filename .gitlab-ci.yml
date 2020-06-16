@@ -1,7 +1,7 @@
 stages:
   - test
   - build
-  - production-admin
+  - staging
   - production
 
 test:
@@ -48,13 +48,13 @@ build_image:
         --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null} \
         --values ${HELM_RELEASE_UPGRADE_VALUES_FILE:-/dev/null}
 
-production-admin:
+staging:
   <<: *deploy_template
-  stage: production-admin
+  stage: staging
   environment:
-    name: production-admin
+    name: staging
     kubernetes:
-      namespace: content
+      namespace: factchecklab-content
   rules:
     - if: '$CI_COMMIT_REF_NAME == "master"'
   before_script:
@@ -67,7 +67,7 @@ production:
   environment:
     name: production
     kubernetes:
-      namespace: content
+      namespace: factchecklab-content
   allow_failure: false
   rules:
     - if: '$CI_COMMIT_REF_NAME == "master"'
