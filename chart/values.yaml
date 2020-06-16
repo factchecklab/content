@@ -371,3 +371,33 @@ extraEnvVarsSecret:
 serviceAccount:
   enabled: false
   annotations: {}
+
+adminService:
+  type: LoadBalancer
+
+  ## HTTP Port
+  port: 80
+
+  ## Extra ports to expose (normally used with the `sidecar` value)
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#multi-port-services
+  ##
+  extraPorts: []
+
+  ## Specify the loadBalancerIP value for LoadBalancer service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
+  ##
+  loadBalancerIP:
+
+  ## nodePorts:
+  ##   http: <to set explicitly, choose port between 30000-32767>
+  nodePorts:
+    http: ""
+
+  ## Enable client source IP preservation
+  ## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+  ##
+  externalTrafficPolicy: Cluster
+
+  ## Service annotations. Evaluated as a template
+  ##
+  annotations: {}
