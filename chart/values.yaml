@@ -27,8 +27,6 @@ image:
   # pullSecrets:
   #   - myRegistryKeySecretName
 
-replicas: 1
-
 ## String to partially override ghost.fullname template (will maintain the release name)
 ##
 # nameOverride:
