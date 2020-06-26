@@ -40,7 +40,12 @@
         'iframe[src*="youtube-nocookie.com"]',
         'iframe[src*="kickstarter.com"][src*="video.html"]',
         'object',
-        'embed'
+        'embed',
+
+        // NOTE: Add a list of commonly used video embeds url here:
+        'iframe[src*="player.bilibili.com"]',
+        'iframe[src*="www.facebook.com/plugins/video.php"]',
+        'iframe.fitvids' // User can add this class manually to trigger fitvids
       ];
 
       if (settings.customSelector) {
@@ -77,6 +82,11 @@
           $.fn.fitVids._count++;
         }
         $this.wrap('<div class="fluid-width-video-container"><div class="fluid-width-video-wrapper"></div></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+'%');
+        if (aspectRatio > 1) {
+          // NOTE: The embed is taller than its width, set a max-width
+          // to prevent the embed from becomming to tall.
+          $this.parents('.fluid-width-video-container').first().css('max-width', width+'px');
+        }
         $this.removeAttr('height').removeAttr('width');
       });
     });
