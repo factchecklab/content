@@ -12,6 +12,12 @@ services:
       - empty:/var/lib/ghost/content/themes/casper-maat/node_modules
     ports:
       - "2368:2368"
+  theme:
+    image: node:lts
+    working_dir: /usr/src/app
+    volumes:
+      - ./ghost/themes/casper-maat:/usr/src/app
+    command: yarn dev
 
 volumes:
   empty:
