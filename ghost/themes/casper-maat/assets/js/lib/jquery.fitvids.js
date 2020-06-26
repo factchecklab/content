@@ -40,7 +40,12 @@
         'iframe[src*="youtube-nocookie.com"]',
         'iframe[src*="kickstarter.com"][src*="video.html"]',
         'object',
-        'embed'
+        'embed',
+
+        // NOTE: Add a list of commonly used video embeds url here:
+        'iframe[src*="player.bilibili.com"]',
+        'iframe[src*="www.facebook.com/plugins/video.php"]',
+        'iframe.fitvids' // User can add this class manually to trigger fitvids
       ];
 
       if (settings.customSelector) {
