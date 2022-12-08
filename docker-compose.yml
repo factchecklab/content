@@ -13,7 +13,7 @@ services:
     ports:
       - "2368:2368"
   theme:
-    image: node:lts
+    image: node:12
     working_dir: /usr/src/app
     volumes:
       - ./ghost/themes/casper-maat:/usr/src/app
