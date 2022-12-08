@@ -1,10 +1,26 @@
 version: '3'
 services:
+  db:
+    image: mariadb:10.3
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
   ghost:
     build:
       context: .
     environment:
       url: http://localhost:2368/
+      database__client:                  mysql
+      database__connection__host:        db
+      database__connection__port:        3306
+      database__connection__database:    ghost
+      database__connection__user:        root
+      database__connection__password:    root
+      storage__active:                   gcs
+      storage__gcs__bucket:              maatproject-content
+      storage__gcs__cdn:                 www-cdn.factchecklab.org
+      storage__gcs__keyFilename:         /var/lib/ghost/gcp-account/key.json
     volumes:
       - ./ghost:/var/lib/ghost/content
 
