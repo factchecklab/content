@@ -30,6 +30,11 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 @import "global.css";
 
+html {
+    scroll-padding-top: 64px; /* compensate for fixed header */
+    scroll-behavior: smooth;
+}
+
 body {
     background: #fff;
 }
@@ -1021,6 +1026,21 @@ make sure this only happens on large viewports / desktop-ish devices.
     height: auto;
 }
 
+.post-full-toc {
+    position: relative;
+    overflow: clip;
+    margin: .5em 0 .5em -60px;
+    width: 230px;
+}
+
+.post-full-toc ol {
+    list-style: none;
+}
+
+.post-full-toc.is-position-fixed {
+    top: 64px
+}
+
 .post-full-content {
     position: relative;
     margin: 0 auto;
@@ -1032,12 +1052,40 @@ make sure this only happens on large viewports / desktop-ish devices.
     background: #fff;
 }
 
+@media (min-width: 1171px) {
+    .post-full-toc {
+        position: absolute;
+    }
+
+    .post-full-content {
+        /* moved left padding to margin to make room for toc */
+        margin: 0 auto auto 170px;
+        padding: 0 170px 6vw 0px;
+    }
+}
+
 @media (max-width: 1170px) {
+    .post-full-toc {
+        margin: 0 11vw;
+    }
+
+    .post-full-toc .is-active-link::before {
+        background-color: #eee;
+    }
+
+    .post-full-toc .is-active-link {
+        font-weight: unset;
+    }
+
     .post-full-content {
         padding: 0 11vw;
     }
 }
 @media (max-width: 800px) {
+    .post-full-toc {
+        margin: 0 6vw;
+    }
+
     .post-full-content {
         padding: 0 5vw;
         font-size: 1.8rem;
@@ -2149,7 +2197,8 @@ Usage (In Ghost editor):
     display: flex;
     flex-direction: column;
     max-width: 1040px;
-    width: 100vw;
+    /* remove image bleeding into margin because of fixed table of content */
+    /* width: 100vw; */
 }
 
 .kg-gallery-row {
