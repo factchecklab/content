@@ -1,8 +1,8 @@
 stages:
   - test
   - build
-  - staging
-  - production
+#  - staging
+#  - production
 
 test:
   image: ghost:3
@@ -48,30 +48,30 @@ build_image:
         --values ${HELM_UPGRADE_VALUES_FILE:-/dev/null} \
         --values ${HELM_RELEASE_UPGRADE_VALUES_FILE:-/dev/null}
 
-staging:
-  <<: *deploy_template
-  stage: staging
-  environment:
-    name: staging
-    kubernetes:
-      namespace: factchecklab-content
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "main"'
-  before_script:
-    - helm repo add bitnami https://charts.bitnami.com/bitnami
-    - helm dep build chart
-
-production:
-  <<: *deploy_template
-  stage: production
-  environment:
-    name: production
-    kubernetes:
-      namespace: factchecklab-content
-  allow_failure: false
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "main"'
-      when: manual
-  before_script:
-    - helm repo add bitnami https://charts.bitnami.com/bitnami
-    - helm dep build chart
+#staging:
+#  <<: *deploy_template
+#  stage: staging
+#  environment:
+#    name: staging
+#    kubernetes:
+#      namespace: factchecklab-content
+#  rules:
+#    - if: '$CI_COMMIT_REF_NAME == "main"'
+#  before_script:
+#    - helm repo add bitnami https://charts.bitnami.com/bitnami
+#    - helm dep build chart
+#
+#production:
+#  <<: *deploy_template
+#  stage: production
+#  environment:
+#    name: production
+#    kubernetes:
+#      namespace: factchecklab-content
+#  allow_failure: false
+#  rules:
+#    - if: '$CI_COMMIT_REF_NAME == "main"'
+#      when: manual
+#  before_script:
+#    - helm repo add bitnami https://charts.bitnami.com/bitnami
+#    - helm dep build chart
