@@ -41,6 +41,7 @@ into the {body} of the default.hbs template --}}
             </figure>
             {{/if}}
 
+            <nav class="post-full-toc"></nav>
             <section class="post-full-content">
                 <div class="post-content">
                     {{content}}
@@ -54,6 +55,10 @@ into the {body} of the default.hbs template --}}
 
 {{/post}}
 
+{{#contentFor "head"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.19.0/tocbot.css" integrity="sha384-DhMZAjPsrwTyXf+EyQ4OeUqlwqItzG6vcW3qjQbgafWdyMCuNZnSTgILVbjo3y9z" crossorigin="anonymous">
+{{/contentFor}}
+
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
@@ -62,4 +67,7 @@ into the {body} of the default.hbs template --}}
         $postContent.fitVids();
     });
 </script>
+
+{{> tocbot}}
+
 {{/contentFor}}

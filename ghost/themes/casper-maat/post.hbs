@@ -5,9 +5,6 @@ into the {body} of the default.hbs template --}}
 
 <header class="site-header">
     {{> site-header}}
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.19.0/tocbot.css" integrity="sha384-DhMZAjPsrwTyXf+EyQ4OeUqlwqItzG6vcW3qjQbgafWdyMCuNZnSTgILVbjo3y9z" crossorigin="anonymous">
-
 </header>
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
@@ -185,6 +182,10 @@ into the {body} of the default.hbs template --}}
 
 {{/post}}
 
+{{#contentFor "head"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.19.0/tocbot.css" integrity="sha384-DhMZAjPsrwTyXf+EyQ4OeUqlwqItzG6vcW3qjQbgafWdyMCuNZnSTgILVbjo3y9z" crossorigin="anonymous">
+{{/contentFor}}
+
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
@@ -222,16 +223,6 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.19.0/tocbot.min.js" integrity="sha384-Ni8iWg6d3hK8xxL87bIln1q5iWceGx/qZO8FBTfrzb3iCjObBkhdVcNhWkZcT4wn" crossorigin="anonymous"></script>
-<script>
-    tocbot.init({
-        tocSelector: '.post-full-toc',
-        contentSelector: '.post-content',
-        positionFixedSelector: '.post-full-toc',
-        headingSelector: 'h1, h2',
-        headingsOffset: 64,
-        scrollSmoothOffset: -64
-    })
-</script>
+{{> tocbot}}
 
 {{/contentFor}}
