@@ -17,10 +17,6 @@ services:
       database__connection__database:    ghost
       database__connection__user:        root
       database__connection__password:    root
-      storage__active:                   gcs
-      storage__gcs__bucket:              maatproject-content
-      storage__gcs__cdn:                 www-cdn.factchecklab.org
-      storage__gcs__keyFilename:         /var/lib/ghost/gcp-account/key.json
     volumes:
       - ./ghost:/var/lib/ghost/content
 
