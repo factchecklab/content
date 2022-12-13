@@ -1069,6 +1069,10 @@ make sure this only happens on large viewports / desktop-ish devices.
         margin: 0 11vw;
     }
 
+    .post-full-toc.is-position-fixed {
+        position: unset;
+    }
+
     .post-full-toc .is-active-link::before {
         background-color: #eee;
     }
