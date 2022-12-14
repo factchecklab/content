@@ -1070,7 +1070,7 @@ make sure this only happens on large viewports / desktop-ish devices.
     }
 
     .post-full-toc.is-position-fixed {
-        position: unset;
+        position: unset !important;
     }
 
     .post-full-toc .is-active-link::before {
