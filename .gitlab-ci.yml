@@ -2,7 +2,7 @@ stages:
   - test
   - build
 #  - staging
-#  - production
+  - production
 
 test:
   image: ghost:3
@@ -60,18 +60,18 @@ build_image:
 #  before_script:
 #    - helm repo add bitnami https://charts.bitnami.com/bitnami
 #    - helm dep build chart
-#
-#production:
-#  <<: *deploy_template
-#  stage: production
-#  environment:
-#    name: production
-#    kubernetes:
-#      namespace: factchecklab-content
-#  allow_failure: false
-#  rules:
-#    - if: '$CI_COMMIT_REF_NAME == "main"'
-#      when: manual
-#  before_script:
-#    - helm repo add bitnami https://charts.bitnami.com/bitnami
-#    - helm dep build chart
+
+production:
+  <<: *deploy_template
+  stage: production
+  environment:
+    name: production
+    kubernetes:
+      namespace: factchecklab-content
+  allow_failure: false
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      when: manual
+  before_script:
+    - helm repo add bitnami https://charts.bitnami.com/bitnami
+    - helm dep build chart

@@ -49,14 +49,8 @@ spec:
             {{- $host := .Values.externalDatabase.host -}}
             {{- $port := .Values.externalDatabase.port -}}
             {{- $database := .Values.externalDatabase.database -}}
-            {{- $user := .Values.externalDatabase.user -}}
+            {{- $user := .Values.externalDatabase.user }}
 
-            {{- if .Values.mariadb.enabled -}}
-              {{- $host = (include "ghost.mariadb.fullname" .) -}}
-              {{- $port = .Values.mariadb.service.port -}}
-              {{- $database = .Values.mariadb.db.name -}}
-              {{- $user = .Values.mariadb.db.user -}}
-            {{- end }}
             - name: database__client
               value: mysql
             - name: database__connection__host
@@ -161,7 +155,7 @@ spec:
             - name: ghost-data
               mountPath: /var/lib/ghost/content
           {{- if .Values.extraVolumeMounts }}
-            {{- include "common.tplvalues.render" ( dict "value" .Values.extraVolumeMounts "context" $ ) | nindent 10 }}
+            {{- include "common.tplvalues.render" ( dict "value" .Values.extraVolumeMounts "context" $ ) | nindent 12 }}
           {{- end }}
       {{- if .Values.sidecars }}
         {{- include "common.tplvalues.render" ( dict "value" .Values.sidecars "context" $ ) | nindent 8 }}
