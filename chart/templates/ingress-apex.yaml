@@ -1,0 +1,29 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ghost.fullname" . }}-apex
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  annotations:
+  {{- if .Values.ingress.annotations }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.ingress.annotations "context" $) | indent 4 }}
+  {{- end }}
+  {{- if .Values.ingress.certManager }}
+    kubernetes.io/tls-acme: "true"
+  {{- end }}
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    traefik.ingress.kubernetes.io/redirect-regex: ^http://factchecklab.org/(.*)
+    traefik.ingress.kubernetes.io/redirect-replacement: https://www.factchecklab.org/$1
+spec:
+  rules:
+  - host: factchecklab.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ghost.fullname" $ }}
+            port:
+              name: http
+        path: /
+        pathType: ImplementationSpecific
+{{- end }}
