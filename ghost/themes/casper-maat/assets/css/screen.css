@@ -679,7 +679,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .post-card-primary-tag {
     margin: 0 0 0.2em;
-    color: var(--blue);
+    color: var(--ghost-accent-color);
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.2px;
@@ -1041,6 +1041,10 @@ make sure this only happens on large viewports / desktop-ish devices.
     top: 64px
 }
 
+.post-full-toc.is-active-link::before {
+    background-color: var(--ghost-accent-color);
+}
+
 .post-full-content {
     position: relative;
     margin: 0 auto;
@@ -1156,9 +1160,9 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .post-full-content a:hover {
-    color: var(--blue);
+    color: var(--ghost-accent-color);
     text-decoration: none;
-    box-shadow: var(--blue) 0 -1px 0 inset;
+    box-shadow: var(--ghost-accent-color) 0 -1px 0 inset;
 }
 
 .post-full-content strong,
@@ -1228,7 +1232,7 @@ Usage (In Ghost editor):
 .post-full-content blockquote {
     margin: 0 0 1.5em;
     padding: 0 1.5em;
-    border-left: color(var(--blue)) 3px solid;
+    border-left: color(var(--ghost-accent-color)) 3px solid;
 }
 @media (max-width: 500px) {
     .post-full-content blockquote {
@@ -1399,7 +1403,7 @@ Usage (In Ghost editor):
     margin: 0.5em 0;
     padding: 0.4em 1em 0.9em;
     border: 0;
-    color: var(--blue);
+    color: var(--ghost-accent-color);
     font-family: Georgia,serif;
     font-size: 3.2rem;
     line-height: 1.35em;
@@ -1446,7 +1450,7 @@ Usage (In Ghost editor):
 }
 
 .footnote-backref {
-    color: var(--blue) !important;
+    color: var(--ghost-accent-color) !important;
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none !important;
@@ -2284,7 +2288,7 @@ Usage (In Ghost editor):
 }
 
 .post-full-content .kg-bookmark-container:hover .kg-bookmark-title {
-    color: var(--blue);
+    color: var(--ghost-accent-color);
 }
 
 .kg-bookmark-description {
