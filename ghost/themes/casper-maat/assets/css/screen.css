@@ -1882,6 +1882,12 @@ Usage (In Ghost editor):
     display: block;
 }
 
+@media (min-width: 1171px) {
+    .subscribe-form {
+        /* add horizontal padding to make room for toc */
+        margin: 1.5em 170px 1.5em 170px;
+    }
+}
 
 @media (max-width: 650px) {
     .subscribe-form-title {
@@ -1925,6 +1931,9 @@ Usage (In Ghost editor):
 .read-next {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: color(var(--whitegrey) l(+5%));
+
+    /* Quick fix so this is put above toc, should be larger than site-main z-order */
+    z-index: 101;
 }
 
 .read-next-feed {
