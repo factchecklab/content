@@ -1,4 +1,4 @@
-FROM node:12 AS theme
+FROM node:18 AS theme
 
 WORKDIR /usr/src/app
 
