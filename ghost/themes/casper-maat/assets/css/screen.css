@@ -2928,3 +2928,15 @@ Usage (In Ghost editor):
         margin-left: 0;
     }
 }
+
+.site-footer-badge {
+    margin-top: 1em;
+}
+
+.site-footer-badge .badge-image-poynter {
+    /*margin-top: 1em;*/
+
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    width: 100px;
+}
