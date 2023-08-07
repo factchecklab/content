@@ -5,7 +5,7 @@ stages:
   - production
 
 test:
-  image: ghost:3
+  image: ghost:5
   stage: test
   before_script:
     - npm install -g gscan
