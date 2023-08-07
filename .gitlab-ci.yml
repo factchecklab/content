@@ -13,13 +13,13 @@ test:
     - gscan ghost/themes/casper-maat
 
 build_image:
-  image: docker:19.03.1
+  image: docker:24
   stage: build
   rules:
     - if: '$CI_COMMIT_REF_NAME == "main"'
       when: on_success
   services:
-    - docker:19.03.1-dind
+    - docker:24-dind
   variables:
     GCR_IMAGE_TAG: $GCR_REGISTRY/$GCR_PROJECT_ID/$CI_PROJECT_NAME:git-$CI_COMMIT_SHORT_SHA
     GITLAB_IMAGE_TAG: $CI_REGISTRY_IMAGE:git-$CI_COMMIT_SHORT_SHA
