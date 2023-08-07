@@ -6,7 +6,7 @@ COPY ghost/themes/casper-maat/ .
 RUN yarn install
 RUN yarn pretest
 
-FROM ghost:5.54.4
+FROM ghost:5.58.0
 
 # Install Google Cloud Storage storage adapter dependencies
 RUN npm install ghost-v3-google-cloud-storage && \
