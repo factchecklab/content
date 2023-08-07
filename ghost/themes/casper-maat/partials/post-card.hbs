@@ -40,17 +40,17 @@
 
         </a>
 
-        
+
         <footer class="post-card-meta">
             {{!--
             <ul class="author-list">
                 {{#foreach authors}}
                 <li class="author-list-item">
-            
+
                     <div class="author-name-tooltip">
                         {{name}}
                     </div>
-            
+
                     {{#if profile_image}}
                     <a href="{{url}}" class="static-avatar">
                         <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
@@ -66,7 +66,7 @@
                 {{!--
                 <span>{{#has author="count:>2"}}Multiple authors{{else}}{{authors}}{{/has}}</span>
                 --}}
-                <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DD HH:mm"}}">{{date format="LL ah時mm分"}}</time> <span class="bull">&bull;</span>
+                <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DDTHH:mm:ssZ"}}">{{date format="LL ah時mm分"}}</time> <span class="bull">&bull;</span>
                     {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</span>
             </div>
         </footer>
