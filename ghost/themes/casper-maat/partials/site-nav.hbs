@@ -34,9 +34,12 @@
         {{/if}}
 
         {{#if @site.members_enabled}}
-            <a class="subscribe-button" href="#/portal/login" data-portal="login">{{t "Login"}}</a>
-            {{#unless @site.members_invite_only}}
-            <a class="subscribe-button" href="#/portal/signup" data-portal="signup">{{t "Subscribe"}}</a>
+            {{#unless @member}}
+                {{#unless @site.members_invite_only}}
+                    <a class="subscribe-button" href="#/portal/signup" data-portal="signup">{{t "Subscribe"}}</a>
+                {{/unless}}
+            {{else}}
+                <a class="subscribe-button" href="#/portal/account" data-portal="account">{{t "Login"}}</a>
             {{/unless}}
         {{/if}}
     </div>
