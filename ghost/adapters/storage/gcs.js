@@ -48,6 +48,7 @@ class GoogleCloudStorageAdapter extends BaseAdapter {
         const options = {
           destination: fileName,
           metadata: {
+            contentType: image.mimetype,
             cacheControl: `public, max-age=${3600 * 24 * 365}`
           },
           public: true
