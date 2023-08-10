@@ -66,8 +66,8 @@
                 {{!--
                 <span>{{#has author="count:>2"}}Multiple authors{{else}}{{authors}}{{/has}}</span>
                 --}}
-                <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DDTHH:mm:ssZ"}}">{{date format="LL ah時mm分"}}</time> <span class="bull">&bull;</span>
-                    {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</span>
+                <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DDTHH:mm:ssZ"}}">{{date format="LL ah時mm分" locale=(t "date_locale")}}</time> <span class="bull">&bull;</span>
+                    {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
             </div>
         </footer>
 

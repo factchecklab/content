@@ -80,8 +80,8 @@ into the {body} of the default.hbs template --}}
                             <h4 class="author-name">{{authors}}</h4>
                             --}}
                             <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DDTHH:mm:ssZ"}}">{{date format="LL ah時mm分"}}</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</span>
+                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DDTHH:mm:ssZ"}}">{{date format="LL ah時mm分" locale=(t "date_locale")}}</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
                             </div>
                         </section>
 
@@ -151,8 +151,8 @@ into the {body} of the default.hbs template --}}
                             <li>
                                 <h4><a href="{{url}}">{{title}}</a></h4>
                                 <div class="read-next-card-meta">
-                                    <p><time datetime="{{date format="YYYY-MM-DD HH:mm"}}">{{date format="LL ah時mm分"}}</time> –
-                                        {{reading_time minute="1 分鐘閱讀時間" minutes="% 分鐘閱讀時間"}}</p>
+                                    <p><time datetime="{{date format="YYYY-MM-DD HH:mm"}}">{{date format="LL ah時mm分" locale=(t "date_locale")}}</time> –
+                                        {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</p>
                                 </div>
                             </li>
                             {{/foreach}}
