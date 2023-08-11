@@ -17,6 +17,8 @@ services:
       database__connection__database:    ghost
       database__connection__user:        root
       database__connection__password:    root
+      portal__url:                       https://www-cdn.factchecklab.org/js/ghost/portal@~{version}/umd/portal.min.js
+      portal__version:                   2.33.4a
     volumes:
       - ./ghost:/var/lib/ghost/content
 
